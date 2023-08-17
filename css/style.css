@@ -47,3 +47,11 @@ ul{
     list-style: none;
     padding: 0;
 }
+.todo-list-item{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+.todo-item{
+    flex: 1;
+}
