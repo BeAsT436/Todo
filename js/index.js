@@ -8,7 +8,8 @@ const list = document.querySelector(".list");
 function handleSubmitForm(e) {
   e.preventDefault();
   if (input.value !== "") {
-    addNewTodo(input.value);
+    addNewTodo(input.value.trim());
+    input.value = ""
   }
 }
 
@@ -24,6 +25,10 @@ function handleDeleteButtonClick(e) {
 function handleCheckButtonClick(e) {
   const todoItem = e.target.closest(".todo-list-item");
   if (todoItem) {
+    const todoText = todoItem.querySelector(".todo-item")
+    todoItem.classList.toggle("completed")
+    const isCompleted = todoItem.classList.contains("completed")
+    updateTodoStatus(todoText.textContent, isCompleted)
     console.log(todoItem);
   }
 }
@@ -64,6 +69,17 @@ function addNewTodo(todo) {
   saveToLocalStorage();
 }
 
+function updateTodoStatus(todoText, isCompleted) {
+  const todos = JSON.parse(localStorage.getItem("todos") || [])
+  const updatedTodos = todos.map((todo)=>{
+    if(todo.text === todoText){
+      todo.completed = isCompleted
+    }
+    return todo
+  })
+  localStorage.setItem("todos", JSON.stringify(updatedTodos))
+}
+
 // DOMContentLoaded eventListener
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -71,6 +87,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   todos.forEach((todo) => {
     addNewTodo(todo.text);
+    if (todo.completed) {
+      const todoItems  = document.querySelectorAll(".todo-item")
+      todoItems.forEach((todoItem)=>{
+        todoItem.closest(".todo-list-item").classList.add("completed")
+      })
+    }
   });
 });
 

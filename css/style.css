@@ -1,57 +1,96 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
-body{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color:white;
-    background-image: url("../images/cool-background.png");
-    background-size: 100% 100%;
-    font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-position: center;
-    background-repeat: no-repeat;
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: white;
+  background-image: url("../images/cool-background.png");
+  background-size: 100% 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-.container{
-    width: 450px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.9);
+.container {
+  width: 450px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.9);
 }
-h1{
-    text-align: center;
-    margin-bottom: 10px;
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
 }
-form{
-    margin-bottom: 10px;
-    display: flex;
+form {
+  margin-bottom: 10px;
+  display: flex;
 }
-input[type="text"]{
-    flex: 1;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
+input[type="text"] {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
 }
-button[type="submit"]{
+button[type="submit"] {
+  border: none;
+  background-color: blue;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+.todo-list-item {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+.todo-item {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.todo-list-item.completed .todo-item {
+  text-decoration: line-through;
+  color: greenyellow;
+}
+button[name="checkButton"],
+button[name="deleteButton"] {
+    padding: 5px 10px;
     border: none;
-    background-color: blue;
-    color: #fff;
-    border-radius: 0 5px 5px 0;
+    background-color: transparent;
+    cursor: pointer;
 }
-ul{
-    list-style: none;
-    padding: 0;
+button[name="checkButton"]{
+    color: orange;
 }
-.todo-list-item{
-    display: flex;
-    align-items: center;
-    padding: 5px;
+button[name="deleteButton"]{
+    color: red;
 }
-.todo-item{
-    flex: 1;
+button[name="checkButton"]:hover ,
+button[name="deleteButton"]:hover ,button:hover{
+    filter: brightness(0.9);
+}
+.scroll-container{
+  max-height: 300px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.scroll-container::-webkit-scrollbar{
+  width: 5px;
+}
+.scroll-container::-webkit-scrollbar-track{
+  background-color: gray;
+}
+.scroll-container::-webkit-scrollbar-thumb{
+  background-color: rgb(28, 177, 182);
+  border-radius: 5px;
 }
