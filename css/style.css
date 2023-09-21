@@ -94,3 +94,12 @@ button[name="deleteButton"]:hover ,button:hover{
   background-color: rgb(28, 177, 182);
   border-radius: 5px;
 }
+.expanded {
+  text-overflow: initial;
+  white-space: normal;
+  overflow: visible;
+  cursor: pointer;
+}
+.todo-item{
+  cursor: pointer;
+}

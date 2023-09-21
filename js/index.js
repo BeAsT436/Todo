@@ -107,3 +107,11 @@ list.addEventListener("click", function (event) {
     handleDeleteButtonClick(event);
   }
 });
+list.addEventListener("click", (e)=>{
+  const todoItem = e.target.closest(".todo-list-item")
+  if (todoItem) {
+    const todoText = todoItem.querySelector(".todo-item")
+    todoText.classList.toggle("expanded")
+  }
+
+})
